@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        input{
+            width: 60%;
+            height: 50px;
+            padding: 1rem;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="inp">
+    <p id="demo">0</p>
+</body>
+<script>
+    let inp = document.getElementById('inp')
+     inp.focus()
+    let array = []
+    inp.addEventListener('input',function(){
+        inpVal = this.value
+
+        let theWords = {
+            ب:'1', پ:'3', ت:'2', ث:'3', ج:'1', چ:'3', خ:'1', ذ:'1', ز:'1', ش:'3', ق:'2', ف:'1', ن:'1', ض:'1', ا:'0', آ:'0', م:'0', ک:'0', گ:'0', ح:'0', ص:'0', ع:'0', ه:'0', و:'0', ئ:'0', ی:'2', ر:'0', د:'0', س:'0', ط:'0', ل:'0',' ':'0',
+        }
+        for (let i = 0; i < inpVal.length; i++) {
+            text = theWords[inpVal[i]];
+        }
+        array.push(text)
+        text = array.reduce(pular)
+        function pular(total,num){
+            return parseFloat(parseFloat(total) + parseFloat(num))
+        }
+        document.getElementById('demo').innerHTML = text
+        console.log(text)
+    })
+</script>
+</html>
